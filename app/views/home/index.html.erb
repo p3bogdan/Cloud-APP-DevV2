@@ -1,0 +1,28 @@
+
+<div class="container">
+  <h1>All Products</h1>
+  <form action="/" method="get">
+    <input type="text" name="search" class="form-control" placeholder="Search Product" value="<%= params[:search] %>">
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+  <% @products.each_slice(3).each do |products| %>
+    <div class="row">
+      <% products.each do |product| %>
+        <div class="col-4">
+          <div class="card" style="width: 18rem;">
+            <% if product.image.present? %>
+              <img class="card-img-top" src="<%= url_for(product.image) %>" alt="Card image cap" style="height:200px">
+            <% end %>
+            <hr />
+            <div class="card-body">
+              <h5 class="card-title"><%= product.title %></h5>
+              <p class="card-text"><%= product.description %></p>
+              <p class="card-text">Price: <%= product.price %></p>
+              <a href="/products/<%= product.id %>/add-to-cart" class="btn btn-primary">Add To Cart</a>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

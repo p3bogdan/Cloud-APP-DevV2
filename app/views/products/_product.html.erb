@@ -1,0 +1,19 @@
+<div id="<%= dom_id product %>">
+  <p>
+    <strong>Title:</strong>
+    <%= product.title %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= product.description %>
+  </p>
+
+  <p>
+    <strong>Image:</strong>
+    <%if product.image.present? %>
+      <img class="card-img-top" src="<%= url_for(product.image) %>" alt="Card image cap" style="height:50px;width:50px">
+    <% end %>
+  </p>
+
+</div>

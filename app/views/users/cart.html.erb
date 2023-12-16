@@ -1,0 +1,20 @@
+
+<div class="container">
+  <h1>Your Cart</h1>
+  <% @carts.each_slice(3).each do |carts| %>
+    <div class="row">
+      <% carts.each do |cart| %>
+        <div class="col-4">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="<%= url_for(cart.product.image) %>" alt="Card image cap" style="height:200px">
+            <hr />
+            <div class="card-body">
+              <h5 class="card-title"><%= cart.product.title %></h5>
+              <p class="card-text"><%= cart.product.description %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
